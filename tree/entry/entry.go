@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"goland/tree"
 )
 
@@ -35,12 +36,17 @@ func main() {
 	root.Right.Left = new(tree.Node)
 	root.Left.Right = tree.CreateTreeNode(2)
 	root.Traverse()
+	nodeCount := 0
+	root.TraverseFunc(func(node *tree.Node) {
+		nodeCount++
+	})
+	fmt.Println("Node count:", nodeCount)
 	//root.print()
 	//root.setValue(30)
 	////定义空指针
 	//var proot *treeNode
 	//proot.setValue(1)
 	//root.print()
-	myroot := myTreeNode{&root}
-	myroot.postOrder()
+	//myroot := myTreeNode{&root}
+	//myroot.postOrder()
 }
